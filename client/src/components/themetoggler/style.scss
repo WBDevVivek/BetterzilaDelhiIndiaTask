@@ -1,0 +1,75 @@
+$color_checkbox_success: #343541;
+// $color_checkbox_default: #8E8E93;
+$color_checkbox_default: #fff;
+$transition: .3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$width: 4em;
+$height: $width/2;
+
+// html {
+//     font-size: 16px;
+//     box-sizing: border-box;
+// }
+
+// body {
+//     font-size: 1em;
+//     font-family: arial, sans-serif;
+// }
+
+.display {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    transform: translate(-10%, -1%);
+    z-index: 50000;
+
+}
+
+
+
+.toggle {
+
+    .toggle-control {
+        transition: $transition;
+        width: $width;
+        height: $height;
+        display: block;
+        border: 2px solid $color_checkbox_default;
+        border-radius: $height;
+        background-color: rgba(black, .06);
+        position: relative;
+
+
+        &:after {
+            transition: $transition;
+            content: "";
+            width: $width/2;
+            height: $height;
+            border-radius: 50%;
+            display: block;
+            background-color: #7b71aa;
+            box-shadow: 0 1px 2px rgba(black, .4), 0 3px 2px rgba(black, .4);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+
+    .toggle-control_BackForLight {
+        background-color: $color_checkbox_success;
+    }
+
+    input {
+        display: none;
+
+        &:checked+.toggle-control_BackForDark {
+            border-color: $color_checkbox_default;
+            background-color: $color_checkbox_default;
+
+            &:after {
+                left: $width/2;
+            }
+        }
+    }
+
+}
